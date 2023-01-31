@@ -1,65 +1,26 @@
 # Share-Market-Analysis-Time-Series
 Google Colab Link: https://colab.research.google.com/drive/1c_gVxIpfsyQO-r8i4ucS_kfMP5P4111h
 
-# can.viewify
 
-[can.viewify](https://github.com/zkat/can.viewify) is a
-[browserify](http://browserify.org/) transform that allows you to `require()`
-`.mustache` and `.ejs` files as precompiled
-[CanJS views](http://canjs.com/docs/can.view.html).
+[can.viewify](https://github.com/zkat/can.viewify) is analysis of a dataset from kaggle
+[MorningStar Dataset](https://www.kaggle.com/datasets/ranjitmishra/morningstar-bank-data-set)
 
-# Quickstart
+# EDA
+1. Null Values
+2. Duplicates
+3. Outliers
+4. Correlation
+5. Seasonal decomposition
+6. Univariate, Bivariate and Multivariate Analysis
 
-### Install
 
-    $ npm install can.viewify
+#### Example Code for Seasonality Decomposition
 
-### Examples
-
-#### Command Line
-
-```
-browserify -t can.viewify main.js -o bundle.js
-```
-
-#### API
-
-```javascript
-var browserify = require('browserify');
-var fs = require('fs');
-
-var b = browserify('main.js');
-b.transform('can.viewify');
-
-b.bundle().pipe(fs.createWriteStream('bundle.js'));
+```python
+result = seasonal_decompose(df['BAC','Close'], model='multiplicative', freq = 30)
+fig = plt.figure()  
+fig = result.plot()  
+fig.set_size_inches(30, 10)
 ```
 
-#### package.json
 
-For packages that include these views, add a browserify transform field to
-`package.json` and browserify will apply the transform to all modules in the
-package as it builds a bundle. Note that `can.view` must be accessible globally
-in `window`, at runtime.
-
-```
-{
-  "name": "anchor",
-  "main": "main",
-  "browserify": {
-    "transform": "can.viewify"
-  }
-}
-```
-
-### Issues
-
-* `can.view` must be present globally in order for these views to work at
-  runtime, otherwise they will return plain strings. In the future, this module
-  will generate modules that explicitly `require('can')` or `require('canjs')`
-  or something of the sort.
-
-### License
-
-`can.viewify` is a public domain work, dedicated using
-[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Feel free to do
-whatever you want with it.
