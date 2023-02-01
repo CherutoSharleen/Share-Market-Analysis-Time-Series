@@ -2,7 +2,7 @@
 Google Colab Link: https://colab.research.google.com/drive/1c_gVxIpfsyQO-r8i4ucS_kfMP5P4111h
 
 
-[can.viewify](https://github.com/zkat/can.viewify) is analysis of a dataset from kaggle
+This is analysis of a dataset from kaggle
 [MorningStar Dataset](https://www.kaggle.com/datasets/ranjitmishra/morningstar-bank-data-set)
 
 # EDA
