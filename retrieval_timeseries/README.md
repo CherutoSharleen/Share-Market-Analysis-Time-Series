@@ -6,7 +6,7 @@ This mini project demonstrates date-range filtering followed by keyword-overlap 
 
 ```bash
 cd retrieval_timeseries
-python -c "from pathlib import Path; from time_filter_search import search_events; print(search_events(Path('events.json'), 'policy bank', '2026-01-01', '2026-01-10'))"
+python cli.py
 ```
 
 ## Test
