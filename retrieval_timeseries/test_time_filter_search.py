@@ -1,7 +1,7 @@
 import unittest
 from pathlib import Path
 
-from time_filter_search import search_events
+from time_filter_search import available_date_range, search_events
 
 
 class TimeFilterSearchTests(unittest.TestCase):
@@ -15,6 +15,11 @@ class TimeFilterSearchTests(unittest.TestCase):
         base = Path(__file__).resolve().parent
         results = search_events(base / "events.json", "bank", "2026-01-01", "2026-01-31", top_k=1)
         self.assertEqual(len(results), 1)
+
+    def test_available_date_range(self) -> None:
+        base = Path(__file__).resolve().parent
+        start, end = available_date_range(base / "events.json")
+        self.assertLessEqual(start, end)
 
 
 if __name__ == "__main__":

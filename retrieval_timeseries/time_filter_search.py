@@ -24,3 +24,9 @@ def search_events(
     if top_k is None:
         return ranked
     return ranked[:top_k]
+
+
+def available_date_range(path: Path) -> tuple[str, str]:
+    events = json.loads(path.read_text(encoding="utf-8"))
+    dates = sorted(event["date"] for event in events)
+    return dates[0], dates[-1]
