@@ -1,7 +1,7 @@
 import unittest
 from pathlib import Path
 
-from time_filter_search import available_date_range, search_events
+from time_filter_search import available_date_range, search_events, search_events_with_scores
 
 
 class TimeFilterSearchTests(unittest.TestCase):
@@ -20,6 +20,12 @@ class TimeFilterSearchTests(unittest.TestCase):
         base = Path(__file__).resolve().parent
         start, end = available_date_range(base / "events.json")
         self.assertLessEqual(start, end)
+
+    def test_search_events_with_scores(self) -> None:
+        base = Path(__file__).resolve().parent
+        rows = search_events_with_scores(base / "events.json", "bank policy", "2026-01-01", "2026-01-10")
+        self.assertGreaterEqual(len(rows), 1)
+        self.assertGreaterEqual(rows[0][1], 1)
 
 
 if __name__ == "__main__":
