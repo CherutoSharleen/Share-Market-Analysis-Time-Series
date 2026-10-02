@@ -23,4 +23,9 @@ fig = result.plot()
 fig.set_size_inches(30, 10)
 ```
 
+## Educational mini-project in this repository
 
+- **Path:** `retrieval_timeseries`
+- **Focus:** date-windowed headline retrieval with scored overlap utilities.
+- **Run:** `cd retrieval_timeseries && python cli.py`
+- **Test:** `cd retrieval_timeseries && python -m unittest test_time_filter_search.py`
